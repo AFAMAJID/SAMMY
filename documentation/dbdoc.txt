@@ -1,0 +1,39 @@
+//DATABASE DOCUMENTATION
+db= database
+
+Db name is themeforest6
+contains three tables;
+i. reservations
+ii. reviews
+iii. checkout
+
+//checkout table
+nine columns;
+fname  -  varchar(255)
+lname - varchar(255)
+street_number - varchar(15)
+city -  varchar(255)
+phone - varchar(25)
+email - varchar(50)
+delivery_time - enum('As_fast_as_possible','one_hour','two_hours')
+payment - enum('mobile_money','credit_card','cash')
+checkout_id - int(11)PRIMARY KEY,auto_increment
+
+//reviews table
+three columns
+text  - varchar(1000)
+name  - varchar(50)
+r_id  - int(11)PRIMARY,auto_increment
+
+//reservations table
+six columns
+id  - int(255)PRIMARY KEY,auto_increment
+name  - varchar(255)
+email - varchar(255)
+phone - varchar(25)
+date  - date
+num_of_attendees  - int(255)
+
+//connection
+used post method to take user data into the database for security reasons
+names of all form inputs are visible in the various forms...

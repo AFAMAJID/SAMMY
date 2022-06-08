@@ -1,0 +1,23 @@
+.vh{
+  min-height: 100vh;
+}
+.table{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+table{
+  border: 2px solid grey;
+  overflow-x: scroll;
+}
+td, th{
+  text-align: center;
+  padding: 50px;
+  width: fit-content;
+}
+.welcome{
+  position: absolute;
+  top: 15px;
+  right: 50px;
+}
