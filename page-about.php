@@ -1,27 +1,3 @@
-<?php
-$dbname = "themeforest6";
-$hostname = "localhost";
-$password = "";
-$username = "root";
-
-
-$con = mysqli_connect($hostname,$username,$password,$dbname);
-if(!$con){
-  echo "Sorry unable to connect to database...";
-}
-if(isset($_POST['submit'])){
-  $name = $_POST['name'];
-  $email = $_POST['email'];
-  $phone = $_POST['phone'];
-  $date = $_POST['date'];
-  $num_of_attendees = $_POST['attendents'];
-
-  $sql = mysqli_query($con,"INSERT INTO reservation(name,email,phone,date,num_of_attendees) VALUES ('$name','$email','$phone','$date','$num_of_attendees')");
-
-  print_r("Reservation created succesfully");
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,6 +34,7 @@ if(isset($_POST['submit'])){
 
     <!-- Header -->
     <header id="header" class="light">
+
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -142,99 +119,55 @@ if(isset($_POST['submit'])){
     </header>
     <!-- Header / End -->
 
-    <!-- Header -->
-    <header id="header-mobile" class="light">
-
-        <div class="module module-nav-toggle">
-            <a href="#" id="nav-toggle" data-toggle="panel-mobile"><span></span><span></span><span></span><span></span></a>
-        </div>
-
-        <div class="module module-logo">
-            <a href="index.html">
-                <img src="assets/img/logo-horizontal-dark.svg" alt="">
-            </a>
-        </div>
-
-        <a href="#" class="module module-cart" data-toggle="panel-cart">
-            <i class="ti ti-shopping-cart"></i>
-            <span class="notification">0</span>
-        </a>
-
-    </header>
-    <!-- Header / End -->
-
     <!-- Content -->
     <div id="content">
 
+        <!-- Page Title -->
+        <div class="page-title border-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 offset-lg-5">
+                        <h1 class="mb-0">About Us</h1>
+                        <h4 class="text-muted mb-0">Some information about our restaurant</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Section -->
-        <section class="section section-lg bg-dark">
+        <section class="section section-bg-edge">
 
-            <!-- Video BG -->
-
-            <!-- BG Video -->
-            <!-- <div class="bg-video dark-overlay" data-src="http://assets.suelo.pl/soup/video/video_3.mp4" data-type="video/mp4"></div> -->
-
-            <!-- <div class="bg-video dark-overlay" data-src="/" data-type="video/mp4"></div> -->
-
-            <video class= " bg-video " width="900" height="900" autoplay muted >
-                <source src="imgs/video1.mp4" type="video/mp4">
-                <source src="movie.ogg" type="video/ogg">
-              Your browser does not support the video tag.
-              </video>
+            <div class="image left bottom col-md-7">
+                <div class="bg-image"><img src="imgs/sam.jpg" alt=""></div>
+            </div>
 
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <!-- Book a Table -->
-                        <div class="utility-box">
-                            <div class="utility-box-title bg-dark dark">
-                                <div class="bg-image"><img src="imgs/about1.jpg" alt=""></div>
-                                <div>
-                                    <span class="icon icon-primary"><i class="ti ti-bookmark-alt"></i></span>
-                                    <h4 class="mb-0">Book a table</h4>
-                                    <p class="lead text-muted mb-0">Details about your reservation.</p>
-                                </div>
-                            </div>
-                            <form action="#" method="POST" data-validate>
-                                <div class="utility-box-content">
-                                    <div class="form-group">
-                                        <label>Name and surename:</label>
-                                        <input type="text" name="name" class="form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>E-mail:</label>
-                                        <input type="email" name="email" class="form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Phone:</label>
-                                        <input type="text" name="phone" class="form-control" required>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Date:</label>
-                                                <input type="date" name="date" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Number of Attendees:</label>
-                                                <input type="number" name="attendents" min="1" class="form-control" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- -->
-                                <button class="utility-box-btn btn btn-secondary btn-block btn-lg btn-submit" type="submit" name="submit" value="submit">
-                                    <span class="description">Make reservation!</span>
-                                    <span class="success">
-                                        <svg x="0px" y="0px" viewBox="0 0 32 32"><path stroke-dasharray="19.79 19.79" stroke-dashoffset="19.79" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/></svg>
-                                    </span>
-                                    <span class="error">Try again...</span>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                <div class="col-lg-5 offset-lg-5 col-md-9 offset-md-3">
+                    <div class="rate mb-5 rate-lg"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i></div>
+                    <h2>The best food in Accra!</h2>
+                    <p class="lead"> Soup Resto not only provides good and healty food, but has also made it a point to make access to food as easy as possible.</p>
+                    <p>Soup Resto also specializes in delicious food featuring fresh ingredients and masterful preparation by the culinary team. Whether you’re ordering a multi-course meal or grabbing a drink and pizza at the bar, Soup Resto's lively, casual yet upscale atmosphere makes it perfect for dining with friends, family, clients and business associates.</p>
+                    <h6>Samuel Theodore, CEO</h6>
+                    <img src="assets/img/svg/sign.svg" alt="" class="mb-5">
+                    <h4>What people say about Us?</h4>
+                    <a href="page-reviews.html" class="btn btn-outline-primary"><span>Check our reviews</span></a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section -->
+        <section class="section section-lg dark bg-dark">
+
+            <!-- BG Image -->
+            <div class="bg-image bg-parallax"><img src="imgs/about1.jpg" alt=""></div>
+
+            <div class="container text-center">
+                <div class="col-lg-8 offset-lg-2">
+                    <h2 class="mb-3">Would you like to visit Us?</h2>
+                    <h5 class="text-muted">Book a table even right now or make an online order!</h5>
+                    <a href="menu-list-navigation.html" class="btn btn-primary"><span>Order Online</span></a>
+                    <a href="book-a-table.html" class="btn btn-outline-primary"><span>Book a table</span></a>
                 </div>
             </div>
 
@@ -250,10 +183,10 @@ if(isset($_POST['submit'])){
                         <a href="index.html"><img src="assets/img/logo-light.svg" alt="" width="88" class="mt-5 mb-5"></a>
                     </div>
                     <div class="col-lg-4 col-md-6">
-                        <h5 class="text-muted"> Contact Us</h5>
+                        <h5 class="text-muted">Contact Us</h5>
                         <ul class="list-posts">
                             <li>
-                                 <li class="txt14 m-b-14">
+                                <li class="txt14 m-b-14">
                                     <i class="fa fa-map-marker fs-16 dis-inline-block size19" aria-hidden="true"></i>
                                     UPSA HOSTEL
                                 </li>
@@ -270,11 +203,11 @@ if(isset($_POST['submit'])){
                         </ul>
                     </div>
                     <div class="col-lg-5 col-md-6">
-                        <h5 class="text-muted">Subscribe to our mailing list to get the latest news!</h5>
+                        <h5 class="text-muted">Subscribe Us!</h5>
                         <!-- MailChimp Form -->
                         <form action="//suelo.us12.list-manage.com/subscribe/post-json?u=ed47dbfe167d906f2bc46a01b&amp;id=24ac8a22ad" id="sign-up-form" class="sign-up-form validate-form mb-5" method="POST">
                             <div class="input-group">
-                                <input name="EMAIL" id="mce-EMAIL" type="email" class="form-control" placeholder="Type your e-mail..." required>
+                                <input name="EMAIL" id="mce-EMAIL" type="email" class="form-control" placeholder="Tap your e-mail..." required>
                                 <span class="input-group-btn">
                                     <button class="btn btn-primary btn-submit" type="submit">
                                         <span class="description">Subscribe</span>
@@ -293,7 +226,6 @@ if(isset($_POST['submit'])){
                         <a href="#" class="icon icon-social icon-circle icon-sm icon-youtube"><i class="fa fa-youtube"></i></a>
                         <a href="#" class="icon icon-social icon-circle icon-sm icon-instagram"><i class="fa fa-instagram"></i></a>
                     </div>
-                </div>
 
 
             <!-- Back To Top -->
@@ -519,7 +451,7 @@ if(isset($_POST['submit'])){
     </div>
 </div>
 
-<!-- <form action="" method="POST" id="booking-form" class="booking-form" data-validate> -->
+
 
 <!-- JS Core -->
 <script src="dist/js/core.js"></script>

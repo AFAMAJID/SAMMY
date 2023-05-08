@@ -1,27 +1,3 @@
-<?php
-$dbname = "themeforest6";
-$hostname = "localhost";
-$password = "";
-$username = "root";
-
-
-$con = mysqli_connect($hostname,$username,$password,$dbname);
-if(!$con){
-  echo "Sorry unable to connect to database...";
-}
-if(isset($_POST['submit'])){
-  $name = $_POST['name'];
-  $email = $_POST['email'];
-  $phone = $_POST['phone'];
-  $date = $_POST['date'];
-  $num_of_attendees = $_POST['attendents'];
-
-  $sql = mysqli_query($con,"INSERT INTO reservation(name,email,phone,date,num_of_attendees) VALUES ('$name','$email','$phone','$date','$num_of_attendees')");
-
-  print_r("Reservation created succesfully");
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +7,7 @@ if(isset($_POST['submit'])){
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <!-- Title -->
-<title>Soup - Restaurant with Online Ordering System</title>
+<title>Soup - Restaurant with Online Ordering System </title>
 
 <!-- Favicons -->
 <link rel="shortcut icon" href="assets/img/favicon.png">
@@ -58,6 +34,7 @@ if(isset($_POST['submit'])){
 
     <!-- Header -->
     <header id="header" class="light">
+
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -94,8 +71,8 @@ if(isset($_POST['submit'])){
                                 <div class="dropdown-container">
                                     <ul class="dropdown-mega">
                                         <li><a href="page-offer-single.html">Offer of the day</a></li>
-                                        <li><a href="book-a-table.php">Book a table</a></li>
-                                        <li><a href="checkout.php">Checkout</a></li>
+                                        <li><a href="./book-a-table.php">Book a table</a></li>
+                                        <li><a href="./checkout.php">Checkout</a></li>
                                         <li><a href="confirmation.html">Confirmation</a></li>
                                  </ul>
                                  </div>
@@ -142,98 +119,273 @@ if(isset($_POST['submit'])){
     </header>
     <!-- Header / End -->
 
-    <!-- Header -->
-    <header id="header-mobile" class="light">
-
-        <div class="module module-nav-toggle">
-            <a href="#" id="nav-toggle" data-toggle="panel-mobile"><span></span><span></span><span></span><span></span></a>
-        </div>
-
-        <div class="module module-logo">
-            <a href="index.html">
-                <img src="assets/img/logo-horizontal-dark.svg" alt="">
-            </a>
-        </div>
-
-        <a href="#" class="module module-cart" data-toggle="panel-cart">
-            <i class="ti ti-shopping-cart"></i>
-            <span class="notification">0</span>
-        </a>
-
-    </header>
-    <!-- Header / End -->
-
     <!-- Content -->
     <div id="content">
 
-        <!-- Section -->
-        <section class="section section-lg bg-dark">
+        <!-- Section - Main -->
+        <section class="section section-main section-main-1 bg-light">
 
-            <!-- Video BG -->
-
-            <!-- BG Video -->
-            <!-- <div class="bg-video dark-overlay" data-src="http://assets.suelo.pl/soup/video/video_3.mp4" data-type="video/mp4"></div> -->
-
-            <!-- <div class="bg-video dark-overlay" data-src="/" data-type="video/mp4"></div> -->
-
-            <video class= " bg-video " width="900" height="900" autoplay muted >
-                <source src="imgs/video1.mp4" type="video/mp4">
-                <source src="movie.ogg" type="video/ogg">
-              Your browser does not support the video tag.
-              </video>
-
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <!-- Book a Table -->
-                        <div class="utility-box">
-                            <div class="utility-box-title bg-dark dark">
-                                <div class="bg-image"><img src="imgs/about1.jpg" alt=""></div>
-                                <div>
-                                    <span class="icon icon-primary"><i class="ti ti-bookmark-alt"></i></span>
-                                    <h4 class="mb-0">Book a table</h4>
-                                    <p class="lead text-muted mb-0">Details about your reservation.</p>
+            <div class="container dark">
+                <div class="slide-container">
+                    <div id="section-main-1-carousel-image" class="image inner-controls">
+                        <div class="slide"><div class="bg-image"><img src="imgs/caro2.jpg" alt="alt txt"></div></div>
+                        <div class="slide"><div class="bg-image"><img src="imgs/caro1.jpg" alt=""></div></div>
+                        <div class="slide"><div class="bg-image"><img src="imgs/caro3.jpg" alt=""></div></div>
+                    </div>
+                    <div class="content dark">
+                        <div id="section-main-1-carousel-content">
+                            <div class="content-inner">
+                                <h4 class="text-muted">New product!</h4>
+                                <h1>Boscaiola Pasta</h1>
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary btn-lg" data-action="open-cart-modal" data-id="1"><span>Add to cart</span></button>
+                                    <span class="price price-lg">from GH₵9.98</span>
                                 </div>
                             </div>
-                            <form action="#" method="POST" data-validate>
-                                <div class="utility-box-content">
-                                    <div class="form-group">
-                                        <label>Name and surename:</label>
-                                        <input type="text" name="name" class="form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>E-mail:</label>
-                                        <input type="email" name="email" class="form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Phone:</label>
-                                        <input type="text" name="phone" class="form-control" required>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Date:</label>
-                                                <input type="date" name="date" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Number of Attendees:</label>
-                                                <input type="number" name="attendents" min="1" class="form-control" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- -->
-                                <button class="utility-box-btn btn btn-secondary btn-block btn-lg btn-submit" type="submit" name="submit" value="submit">
-                                    <span class="description">Make reservation!</span>
-                                    <span class="success">
-                                        <svg x="0px" y="0px" viewBox="0 0 32 32"><path stroke-dasharray="19.79 19.79" stroke-dashoffset="19.79" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/></svg>
-                                    </span>
-                                    <span class="error">Try again...</span>
-                                </button>
-                            </form>
+                            <div class="content-inner">
+                                <h1>Get 10% off coupon</h1>
+                                <h5 class="text-muted mb-5">and use it with your next order!</h5>
+                                <a href="page-offers.html" class="btn btn-outline-primary btn-lg"><span>Get it now!</span></a>
+                            </div>
+                            <div class="content-inner">
+                                <h1>Delicious Desserts</h1>
+                                <h5 class="text-muted mb-5">Order it online even now!</h5>
+                                <a href="./checkout.php" class="btn btn-outline-primary btn-lg"><span>Order now!</span></a>
+                            </div>
                         </div>
+                        <nav class="content-nav">
+                            <a class="prev" href="#"><i class="ti ti-arrow-left"></i></a>
+                            <a class="next" href="#"><i class="ti ti-arrow-right"></i></a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section - About -->
+        <section class="section section-bg-edge">
+
+            <div class="image right col-md-6 offset-md-6">
+                <div class="bg-image"><img src="imgs/homepic1.jpg" alt=""></div>
+            </div>
+
+            <div class="container">
+                <div class="col-lg-5 col-md-9">
+                    <div class="rate mb-5 rate-lg"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i></div>
+                    <h1>The best food in Accra!</h1>
+                    <p class="lead text-muted mb-5"> Dine with us or order our food at your convenience and enjoy a heart warming experience</p>
+                    <div class="blockquotes">
+                        <!-- Blockquote -->
+                        <blockquote class="blockquote light animated" data-animation="fadeInLeft">
+                            <div class="blockquote-content">
+                                <div class="rate rate-sm mb-3"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i></div>
+                                <p>It was an amazing feeling for my belly!</p>
+                            </div>
+                            <footer>
+                                <img src="imgs/idpic.jpg" alt="">
+                                <span class="name">Kojo Kwapong<span class="text-muted">, Google</span></span>
+                            </footer>
+                        </blockquote>
+                        <!-- Blockquote -->
+                        <blockquote class="blockquote animated" data-animation="fadeInRight" data-animation-delay="300">
+                            <div class="blockquote-content dark">
+                                <div class="rate rate-sm mb-3"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i></div>
+                                <p>Great food and great atmosphere!</p>
+                            </div>
+                            <footer>
+                                <img src="imgs/idpic.jpg" alt="">
+                                <span class="name">Kate Nyamekeye<span class="text-muted">, LinkedIn</span></span>
+                            </footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section - Steps -->
+        <section class="section section-extended right dark">
+
+            <div class="container bg-dark">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- Step -->
+                        <div class="feature feature-1 mb-md-0">
+                            <div class="feature-icon icon icon-primary"><i class="ti ti-shopping-cart"></i></div>
+                            <div class="feature-content">
+                                <h4 class="mb-2"><a href="menu-list-navigation.html">Pick a dish</a></h4>
+                                <p class="text-muted mb-0">Choose from our collection of delicious and healthy food.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- Step -->
+                        <div class="feature feature-1 mb-md-0">
+                            <div class="feature-icon icon icon-primary"><i class="ti ti-wallet"></i></div>
+                            <div class="feature-content">
+                                <h4 class="mb-2">Make a payment</h4>
+                                <p class="text-muted mb-0">Pay at your convenience.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- Step -->
+                        <div class="feature feature-1 mb-md-0">
+                            <div class="feature-icon icon icon-primary"><i class="ti ti-package"></i></div>
+                            <div class="feature-content">
+                                <h4 class="mb-2">Recieve your food!</h4>
+                                <p class="text-muted mb-3">Your food will be delivered promptly and professionally.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section - Menu -->
+        <section class="section pb-0 protrude">
+
+            <div class="container">
+                <h1 class="mb-6">Our menu</h1>
+            </div>
+
+            <div class="menu-sample-carousel carousel inner-controls" data-slick='{
+                "dots": true,
+                "slidesToShow": 3,
+                "slidesToScroll": 1,
+                "infinite": true,
+                "responsive": [
+                    {
+                        "breakpoint": 991,
+                        "settings": {
+                            "slidesToShow": 2,
+                            "slidesToScroll": 1
+                        }
+                    },
+                    {
+                        "breakpoint": 690,
+                        "settings": {
+                            "slidesToShow": 1,
+                            "slidesToScroll": 1
+                        }
+                    }
+                ]
+            }'>
+                <!-- Menu Sample -->
+                <div class="menu-sample">
+                    <a href="menu-list-navigation.html#Burgers">
+                        <img src="imgs/burger.jpg" width="400" height="100 alt="" class="image">
+                        <h3 class="title">Burgers</h3>
+                    </a>
+                </div>
+                <!-- Menu Sample -->
+                <div class="menu-sample">
+                    <a href="menu-list-navigation.html#Pizza">
+                        <img src="imgs/pizza.jpg"  width="400" height="100" alt="" class="image">
+                        <h3 class="title">Pizza</h3>
+                    </a>
+                </div>
+                <!-- Menu Sample -->
+                <div class="menu-sample">
+                    <a href="menu-list-navigation.html#Rice">
+                        <img src="imgs/rice.jpg" alt="" class="image">
+                        <h3 class="title">Rice</h3>
+                    </a>
+                </div>
+                <!-- Menu Sample -->
+                <div class="menu-sample">
+                    <a href="menu-list-navigation.html#Pasta">
+                        <img src="imgs/pasta.jpg" alt="" class="image">
+                        <h3 class="title">Pasta</h3>
+                    </a>
+                </div>
+                <!-- Menu Sample -->
+                <div class="menu-sample">
+                    <a href="menu-list-navigation.html#Desserts">
+                        <img src="imgs/dessert.jpg" alt="" class="image">
+                        <h3 class="title">Desserts</h3>
+                    </a>
+                </div>
+                <!-- Menu Sample -->
+                <div class="menu-sample">
+                    <a href="menu-list-navigation.html#Drinks">
+                        <img src="imgs/drink.jpg" alt="" class="image">
+                        <h3 class="title">Drinks</h3>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section - Offers -->
+        <section class="section bg-light">
+
+            <div class="container">
+                <h1 class="text-center mb-6">Special offers</h1>
+                <div class="carousel" data-slick='{"dots": true}'>
+                    <!-- Special Offer -->
+                    <div class="special-offer">
+                        <img src="imgs/burger.jpg" alt="" class="special-offer-image">
+                        <div class="special-offer-content">
+                            <h2 class="mb-2">Free Burger</h2>
+                            <h5 class="text-muted mb-5">Get free burger from orders higher that GH₵40!</h5>
+                            <ul class="list-check text-lg mb-0">
+                                <li>Only on Tuesdays</li>
+                                <li class="false">Order higher that GH₵40</li>
+                                <li>Unless one burger ordered</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Special Offer -->
+                    <div class="special-offer">
+                        <img src="imgs/pizza.jpg" alt="" class="special-offer-image">
+                        <div class="special-offer-content">
+                            <h2 class="mb-2">Free Small Pizza</h2>
+                            <h5 class="text-muted mb-5">Get free burger from orders higher that GH₵40!</h5>
+                            <ul class="list-check text-lg mb-0">
+                                <li>Only on Weekends</li>
+                                <li class="false">Order higher that GH₵40</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Special Offer -->
+                    <div class="special-offer">
+                        <img src="imgs/drink.jpg" alt="" class="special-offer-image">
+                        <div class="special-offer-content">
+                            <h2 class="mb-2">Chip Friday</h2>
+                            <h5 class="text-muted mb-5">10% Off for all dishes!</h5>
+                            <ul class="list-check text-lg mb-0">
+                                <li>Only on Friday</li>
+                                <li>All products</li>
+                                <li>Online order</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section -->
+        <section class="section section-lg dark bg-light">
+
+            <!-- BG Image -->
+            <div class="bg-image bg-parallax"><img src="imgs/about1.jpg" alt=""></div>
+
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <!-- <video width="900" height="900" controls>
+                            <source src="imgs/video1.mp4" type="video/mp4">
+                            <source src="movie.ogg" type="video/ogg">
+                          Your browser does not support the video tag.
+                          </video> -->
+                         <h2 class="mb-3">Find our contact Info below!</h2>
+                        <!-- <h5 class="text-muted">Book a table even right now or make an online order!</h5> -->
+                        <!-- <button class="btn-play" data-toggle="video-modal" data-target="#modalVideo" data-video="https://www.youtube.com/embed/uVju5--RqtY"></button> -->
+
                     </div>
                 </div>
             </div>
@@ -250,10 +402,10 @@ if(isset($_POST['submit'])){
                         <a href="index.html"><img src="assets/img/logo-light.svg" alt="" width="88" class="mt-5 mb-5"></a>
                     </div>
                     <div class="col-lg-4 col-md-6">
-                        <h5 class="text-muted"> Contact Us</h5>
+                        <h5 class="text-muted">Contact Us</h5>
                         <ul class="list-posts">
                             <li>
-                                 <li class="txt14 m-b-14">
+                                <li class="txt14 m-b-14">
                                     <i class="fa fa-map-marker fs-16 dis-inline-block size19" aria-hidden="true"></i>
                                     UPSA HOSTEL
                                 </li>
@@ -272,7 +424,7 @@ if(isset($_POST['submit'])){
                     <div class="col-lg-5 col-md-6">
                         <h5 class="text-muted">Subscribe to our mailing list to get the latest news!</h5>
                         <!-- MailChimp Form -->
-                        <form action="//suelo.us12.list-manage.com/subscribe/post-json?u=ed47dbfe167d906f2bc46a01b&amp;id=24ac8a22ad" id="sign-up-form" class="sign-up-form validate-form mb-5" method="POST">
+                        <form action="//suelo.us12.list-manage.com/subscribe/post-json?u=ed47dbfe167d906f2bc46a01b&amp;id=24ac8a22ad"class="sign-up-form validate-form mb-5" method="POST">
                             <div class="input-group">
                                 <input name="EMAIL" id="mce-EMAIL" type="email" class="form-control" placeholder="Type your e-mail..." required>
                                 <span class="input-group-btn">
@@ -298,7 +450,7 @@ if(isset($_POST['submit'])){
 
             <!-- Back To Top -->
             <button id="back-to-top" class="back-to-top"><i class="ti ti-angle-up"></i></button>
-
+<div class="admin"><a href="./admin.php">Admin</a></div>
         </footer>
         <!-- Footer / End -->
 
@@ -400,7 +552,7 @@ if(isset($_POST['submit'])){
                         <h6 class="mb-1 product-modal-name">Boscaiola Pasta</h6>
                         <span class="text-muted product-modal-ingredients">Pasta, Cheese, Tomatoes, Olives</span>
                     </div>
-                    <div class="col-3 text-lg text-right">GH₵<span class="product-modal-price"></span></div>
+                    <div class="col-3 text-lg text-right">GH₵<span class="product-modal-price">9.00</span></div>
                 </div>
             </div>
             <div class="modal-body panel-details-container">
@@ -519,7 +671,34 @@ if(isset($_POST['submit'])){
     </div>
 </div>
 
-<!-- <form action="" method="POST" id="booking-form" class="booking-form" data-validate> -->
+<!-- Video Modal / Demo -->
+<div class="modal modal-video fade" id="modalVideo" role="dialog">
+    <button class="close" data-dismiss="modal"><i class="ti ti-close"></i></button>
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <iframe height="500"></iframe>
+        </div>
+    </div>
+</div>
+
+<!-- Modal / COVID -->
+<div class="modal fade" id="covid-modal" role="dialog" data-timeout="1000" data-set-cookie="covid-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header modal-header-lg dark bg-dark">
+                <div class="bg-image"><img src="imgs/washing.jpg" alt=""></div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="ti ti-close"></i></button>
+            </div>
+            <div class="modal-body">
+                <h3>We are COVID-19 safe!</h3>
+                <p>Please note that all our deliveries and practices are adherent to covid 19 protocols. Thank you</p>
+                <button class="btn btn-secondary" data-dismiss="modal"><span>Ok, thanks!</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <!-- JS Core -->
 <script src="dist/js/core.js"></script>
